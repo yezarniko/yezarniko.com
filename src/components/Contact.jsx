@@ -6,7 +6,7 @@ function Contact() {
   return (
     <section id="contact" className="contact-section">
       <div className="wrap contact-inner">
-        <div className="sec-num">05 — Get in touch</div>
+        <div className="sec-num">04 — Get in touch</div>
         <h2 className="big-cta">
           Have a project in mind? <em>Let's build something that works.</em>
         </h2>

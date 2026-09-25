@@ -8,33 +8,37 @@ function Hero() {
     <section className="hero" aria-labelledby="intro-title">
       <div className="wrap hero-grid">
         <div>
-          <div className="eyebrow">Software Engineer · Yangon, Myanmar</div>
+          <div className="eyebrow">Yangon, Myanmar</div>
           <h1 className="name" id="intro-title">
             Ye Zarni Ko
-            <br />
-            {' '}
-            <em>builds things that learn.</em>
           </h1>
-          <p className="role">AI / ML Engineer &nbsp;·&nbsp; Full-Stack Developer</p>
+          <p className="role">Software Engineer &nbsp;·&nbsp; Full-Stack Developer</p>
           <p className="lede">
-            I turn ideas into products that solve real business problems — from computer vision and speech models to
-            the web systems that ship them. Currently at Core Value Software Solutions, integrating AI into everyday
-            business software.
+            I turn ideas into products that solve real business problems — from web applications to the systems that
+            support them. Currently at Core Value Software Solutions, building reliable software for everyday business.
+            <span className="hero-inline-social">
+              {socialLinks.map((link) => (
+                <a
+                  href={link.href}
+                  key={link.label}
+                  aria-label={link.label}
+                  title={link.label}
+                  target="_blank"
+                  rel="me noreferrer"
+                >
+                  {link.label === 'GitHub' ? (
+                    <img className="hero-social-icon" src="/images/tech/github.svg" alt="" />
+                  ) : (
+                    <img className="hero-social-icon hero-linkedin-icon" src="/images/linkedin-logo-gray.png" alt="" />
+                  )}
+                </a>
+              ))}
+            </span>
           </p>
           <div className="cta-row">
-            <a className="btn btn-solid" href="#projects">
-              View Projects →
-            </a>
-            <a className="btn btn-line" href="#contact">
+            <a className="btn btn-solid" href="#contact">
               Contact Me
             </a>
-          </div>
-          <div className="social-row">
-            {socialLinks.map((link) => (
-              <a href={link.href} key={link.label} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'me noreferrer' : undefined}>
-                {link.label}
-              </a>
-            ))}
           </div>
         </div>
         <div className={`portrait${isPortraitLoaded ? ' is-loaded' : ''}`}>

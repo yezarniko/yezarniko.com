@@ -11,6 +11,7 @@
   --sans:'Inter', sans-serif;
   --mono:'IBM Plex Mono', monospace;
 }
+html{scroll-behavior:smooth;}
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -135,6 +136,12 @@ h1.name em{font-style:italic;color:var(--accent);font-weight:300;}
 .social-row{display:flex;gap:26px;font-size:13px;color:var(--text-muted);font-family:var(--mono);}
 .social-row a{display:flex;align-items:center;gap:7px;transition:color .25s;}
 .social-row a:hover{color:var(--text);}
+.hero-social-icon{width:20px;height:20px;display:block;opacity:0.72;filter:grayscale(1);transition:opacity .25s;}
+.hero-linkedin-icon{border-radius:4px;}
+.social-row a:hover .hero-social-icon{opacity:1;}
+.hero-inline-social{display:inline-flex;align-items:center;gap:10px;margin-left:12px;vertical-align:middle;}
+.hero-inline-social a{display:inline-flex;}
+.hero-inline-social a:hover .hero-social-icon{opacity:1;}
 
 .portrait{
   position:relative;
@@ -203,7 +210,7 @@ h1.name em{font-style:italic;color:var(--accent);font-weight:300;}
 .stat .label{font-size:12px;color:var(--text-muted);font-family:var(--mono);letter-spacing:0.04em;margin-top:6px;}
 
 /* ---------- SECTION HEADERS ---------- */
-section{padding:96px 0;border-bottom:1px solid var(--line);}
+section{padding:96px 0;border-bottom:1px solid var(--line);scroll-margin-top:88px;}
 .sec-head{
   display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;
   flex-wrap:wrap;gap:16px;
@@ -218,6 +225,17 @@ section{padding:96px 0;border-bottom:1px solid var(--line);}
 .about-label{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.1em;}
 .about-text p{color:var(--text-muted);font-size:17px;line-height:1.85;margin-bottom:22px;max-width:640px;}
 .about-text strong{color:var(--text);font-weight:500;}
+.about-career{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);}
+.about-career-label{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:22px;}
+.about-career-item{display:grid;grid-template-columns:140px 1fr;gap:28px;}
+.about-career-date,.about-career-location{font-family:var(--mono);font-size:12px;color:var(--text-faint);}
+.about-career-date{padding-top:4px;}
+.about-career-logo{width:22px;height:22px;object-fit:contain;flex:0 0 22px;filter:grayscale(1);opacity:0.72;}
+.about-career-role{font-family:var(--serif);font-size:24px;font-weight:400;margin:0 0 6px;}
+.about-career-company{display:flex;flex-direction:column;align-items:flex-start;gap:4px;color:var(--text-muted);font-size:14px;margin-bottom:12px;}
+.about-career-company-name{display:flex;align-items:center;gap:8px;}
+.about-career-description{color:var(--text-muted);font-size:14px;line-height:1.75;margin:0;}
+.about-career-location{margin-top:12px;}
 
 /* ---------- SKILLS ---------- */
 .skills-grid{
@@ -226,9 +244,12 @@ section{padding:96px 0;border-bottom:1px solid var(--line);}
   gap:18px;
 }
 .skill-group{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,0.02);
-  padding:20px;
+  border-top:1px solid var(--line);
+  padding:24px 0 28px;
+}
+.skill-group-head{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-bottom:18px;
 }
 .skill-group-title{
   font-family:var(--mono);
@@ -237,29 +258,31 @@ section{padding:96px 0;border-bottom:1px solid var(--line);}
   color:var(--accent);
   letter-spacing:0.1em;
   text-transform:uppercase;
-  margin-bottom:16px;
+  margin:0;
 }
-.skills-list{display:flex;flex-wrap:wrap;gap:10px;}
+.skills-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
 .skill-pill{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 14px;border:1px solid var(--line);border-radius:2px;
-  font-size:14px;color:var(--text-muted);transition:all .25s;
+  display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:72px;
+  padding:8px 0;border:none;border-radius:0;
+  font-size:14px;color:var(--text-muted);transition:color .25s;
 }
-.skill-pill:hover{border-color:var(--accent);color:var(--text);background:var(--accent-soft);}
-.skill-pill .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+.skill-pill:hover{color:var(--text);}
+.skill-logo{
+  display:block;width:30px;height:30px;object-fit:contain;
+  filter:grayscale(1);opacity:0.72;transition:opacity .25s;
+}
+.skill-pill:hover .skill-logo{opacity:1;}
 
 /* ---------- PROJECTS ---------- */
 .proj-list{display:flex;flex-direction:column;}
 .proj-row{
-  display:grid;grid-template-columns:60px 1fr auto;gap:32px;align-items:center;
+  display:grid;grid-template-columns:1fr;gap:0;align-items:center;
   padding:32px 0;border-top:1px solid var(--line);
   transition:background .25s;
 }
 .proj-row:hover{background:var(--bg-raised);}
 .proj-row:last-child{border-bottom:1px solid var(--line);}
-.proj-idx{font-family:var(--mono);font-size:13px;color:var(--text-faint);}
-.proj-title{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
-.proj-title svg{width:15px;height:15px;opacity:0.5;}
+.proj-title{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:8px;}
 .proj-desc{color:var(--text-muted);font-size:14.5px;max-width:520px;line-height:1.7;}
 .proj-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:220px;}
 .tag{font-family:var(--mono);font-size:11px;padding:5px 10px;border:1px solid var(--line);color:var(--text-faint);white-space:nowrap;}
@@ -421,7 +444,9 @@ footer{padding:32px 0;text-align:center;font-family:var(--mono);font-size:12px;c
   .stats{grid-template-columns:repeat(2,1fr);}
   .stat:nth-child(2){border-right:none;}
   .about-grid{grid-template-columns:1fr;gap:20px;}
+  .about-career-item{grid-template-columns:1fr;gap:8px;}
   .skills-grid{grid-template-columns:1fr;}
+  .skills-list{grid-template-columns:repeat(2,minmax(0,1fr));}
   .menu-toggle{display:flex;}
   .navlinks{
     position:absolute;
